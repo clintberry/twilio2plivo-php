@@ -13,13 +13,13 @@ class Services_Twilio_Rest_Calls
     public function create($from, $to, $url, array $params = array())
     {
 
-        $params["To"] = $to;
-        $params["From"] = $from;
+        $params["to"] = $to;
+        $params["from"] = $from;
 
         if (self::isApplicationSid($url))
             $params["ApplicationSid"] = $url;
         else
-            $params["Url"] = $url;
+            $params["answer_url"] = $url;
 
         return parent::_create($params);
     }

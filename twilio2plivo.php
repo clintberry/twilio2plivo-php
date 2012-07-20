@@ -6,23 +6,6 @@
  */
 
 
-class Services_Twilio {
-    
-}
-
 class Services_Twilio_Twiml {
-    
-}
-
-// Rest Resource Dummy Classes
-class Account {
-
-}
-
-class Calls {
-
-}
-
-class Call {
     
 }

@@ -38,7 +38,7 @@ class Services_Twilio extends Services_Twilio_Resource
     public function __construct(
         $sid,
         $token,
-        $version = '2010-04-01',
+        $version = 'v1',
         Services_Twilio_TinyHttp $_http = null
     ) {
         $this->version = $version;
@@ -64,7 +64,7 @@ class Services_Twilio extends Services_Twilio_Resource
      */
     public function retrieveData($path, array $params = array())
     {
-        $path = "/$this->version/$path.json";
+        $path = "/$this->version/$path";
         return empty($params)
             ? $this->_processResponse($this->http->get($path))
             : $this->_processResponse(
@@ -82,7 +82,7 @@ class Services_Twilio extends Services_Twilio_Resource
      */
     public function deleteData($path, array $params = array())
     {
-        $path = "/$this->version/$path.json";
+        $path = "/$this->version/$path";
         return empty($params)
             ? $this->_processResponse($this->http->delete($path))
             : $this->_processResponse(
@@ -100,7 +100,7 @@ class Services_Twilio extends Services_Twilio_Resource
      */
     public function createData($path, array $params = array())
     {
-        $path = "/$this->version/$path.json";
+        $path = "/$this->version/$path";
         $headers = array('Content-Type' => 'application/x-www-form-urlencoded');
         return empty($params)
             ? $this->_processResponse($this->http->post($path, $headers))

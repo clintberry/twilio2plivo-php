@@ -14,6 +14,11 @@ abstract class Services_Twilio_ListResource
     implements IteratorAggregate
 {
     private $_page;
+    private $_plivoMap = array(
+        'Accounts' => 'Account',
+        'Conferences' => 'Conference',
+        'Participants' => 'Member'
+    );
 
     /**
      * Gets a resource from this list.
@@ -124,6 +129,12 @@ abstract class Services_Twilio_ListResource
         $name = get_class($this);
         $parts = explode('_', $name);
         $basename = end($parts);
+
+        //Plivo mapping for urls that don't match
+        if(isset($this->_plivoMap[$basename])){
+            $basename = $this->_plivoMap[$basename];
+        }
+
         return array(
             'name' => $name,
             'basename' => $basename,

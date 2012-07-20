@@ -17,7 +17,10 @@ class Services_Twilio_TinyHttp {
 
   public function __call($name, $args) {
     list($res, $req_headers, $req_body) = $args + array(0, array(), '');
-
+    echo "$this->scheme://$this->host$res";
+    echo "<pre>";
+    print_r($req_body);
+    die;
     $opts = $this->curlopts + array(
       CURLOPT_URL => "$this->scheme://$this->host$res",
       CURLOPT_HEADER => TRUE,

@@ -1,0 +1,3 @@
+[submodule "plivo-php"]
+	path = plivo-php
+	url = https://github.com/plivo/plivo-php.git
